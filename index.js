@@ -73,3 +73,51 @@ const addEngineer = () => {
         
     });
 };
+
+
+const addIntern = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the intern name?',
+            
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'What is the intern ID?',
+            
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'email address',
+            
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: 'What is the school name?',
+           
+        },
+        {
+            type: 'list',
+            message: 'what role is next',
+            choices: ["Engineer", "Intern", ],
+            name: 'getRole',
+        }
+    ])
+    .then((internResponse) => {
+        const intern = new Intern(name, id, email, school)
+        employees.push(intern)
+        
+    })
+};
+
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+        
+        
+    })
+}
